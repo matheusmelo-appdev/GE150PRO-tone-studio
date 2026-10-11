@@ -27,6 +27,7 @@ The generated `.mo` can be dragged from its output folder into the GE150 editor'
 
 ## First-version limits
 
+- **Firmware basis:** The USB protocol was reverse-engineered against MOOER GE150PRO desktop editor **V2.1.4** and a connected GE150 Pro. The pedal firmware revision itself was not established, and the app does not read or enforce one. The `.mo` metadata value `device_version: V1.0.0` is preset-schema metadata—not proof of the pedal firmware version. Treat compatibility as unverified across firmware revisions; do not use this app to update firmware.
 - With no preset loaded, AI selects block models and settings across the nine fixed GE150 slots. Existing presets are optional starting points.
 - The built-in chromatic tuner listens to the connected GE150Pro USB audio input (A4=440 Hz); it does not trigger the pedal's A+B tuner mode. Microphone permission is requested only when you start it. Audio stays local. The user confirmed it works with the pedal.
 - The UI shows documented factory model inspirations in parentheses, and AI receives those `based on` notes as sound-design hints. These are official manual references, not guarantees of exact hardware equivalence.
@@ -37,9 +38,3 @@ The generated `.mo` can be dragged from its output folder into the GE150 editor'
 - Custom AMP import accepts `.gnr` or `.nam`. For NAM, select the official `nam_to_gnr_cli` from your installed MOOER editor; the proprietary converter is run locally and is not bundled or redistributed. Custom IR import accepts PCM WAV files. The app remembers the selected file basename (max 16 bytes) as a local fallback name after import.
 - Custom AMP/CAB uploads are in the closed **Custom model import** section beside Provider settings, with separate AMP and CAB tabs. They require explicit confirmation because they overwrite a pedal slot and cannot be backed up by this app. The user reports IR upload works and the AMP appears in the pedal's list. WAV resampling is linear and not sample-matched to MOOER Studio; AMP audio playback and the fixed ACK path still need verification on an expendable slot.
 - Direct selection, live updates, and backed-up slot writes are implemented but have not been physically tested. Test on a nonessential slot first; firmware updates are not supported.
-
-## Documentation order
-
-1. This README — install, run, and feature status.
-2. [`docs/preset-format.md`](docs/preset-format.md) — `.mo` structure and decoded sample.
-3. [`docs/reverse-engineering.md`](docs/reverse-engineering.md) — USB protocol, official-app findings, import caveats, and verification status.
