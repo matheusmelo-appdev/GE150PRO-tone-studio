@@ -13,4 +13,4 @@
 /.env.*
 !/.env.example
 *.dSYM/
-/docs
+/docs/
