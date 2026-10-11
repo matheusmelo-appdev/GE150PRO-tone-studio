@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <chain name="FX/COMP">
+        <FX name="01: CRY WAH" paraPos="1">
+            <para name="Q" type="0">0_100_1_0_</para>
+            <para name="POSITION" type="0">0_100_1_0_</para>
+            <para name="PEAK" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="02: 535 WAH" paraPos="1"></FX>
+        <FX name="03: AUTO WAH" paraPos="3">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="RANGE" type="0">0_100_1_0_</para>
+            <para name="PEAK" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="04: TALK WAH AH" paraPos="3"></FX>
+        <FX name="05: TALK WAH OH" paraPos="3"></FX>
+        <FX name="06: TOUCH WAH" paraPos="6">
+            <para name="ATTACK" type="0">0_100_1_0_</para>
+            <para name="SENS" type="0">0_100_1_0_</para>
+            <para name="PEAK" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="07: YELLOW COMP" paraPos="7">
+            <para name="ATTACK" type="0">0_100_1_0_</para>
+            <para name="THRES" type="0">0_100_1_0_</para>
+            <para name="RATIO" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="08: BLUE COMP" paraPos="7"></FX>
+
+        <FX name="09: S-COMP" paraPos="9">
+            <para name="SENS" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="10: RED COMP" paraPos="9"></FX>
+        <FX name="11: LIMIT" paraPos="11">
+            <para name="THRES" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="12: INTEL REDUCER" paraPos="12">
+            <para name="THRES" type="0">0_100_1_0_</para>
+            <para name="DEPTH" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </FX>
+    </chain>
+
+    <chain name="DS/OD"> 
+        <DS name="01: TUBE DR" paraPos="1">
+            <para name="VOLUME" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+            <para name="GAIN" type="0">0_100_1_0_</para>
+        </DS>
+        <DS name="02: 808" paraPos="1">
+            <para name="VOLUME" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+            <para name="GAIN" type="0">0_100_1_0_</para>
+        </DS>
+        <DS name="03: PURE BOOST" paraPos="1"></DS>
+        <DS name="04: FLEX BOOST" paraPos="1"></DS>
+        <DS name="05: DDRIVE" paraPos="1"></DS>
+        <DS name="06: BLACK RAT" paraPos="1"></DS>
+        <DS name="07: GREY FAZE" paraPos="1"></DS>
+        <DS name="08: MUFFY" paraPos="1"></DS>
+        <DS name="09: MTL ZONE" paraPos="1"></DS>
+        <DS name="10: MTL MASTER" paraPos="1"></DS>
+        <DS name="11: OBSESSIVE DIST" paraPos="1"></DS>
+        <DS name="12: JIMMY OD" paraPos="1"></DS>
+        <DS name="13: FULL DRV" paraPos="1"></DS>
+        <DS name="14: SHRED" paraPos="1"></DS>
+        <DS name="15: BEEBEE PRE" paraPos="1"></DS>
+        <DS name="16: BEEBEE +" paraPos="1"></DS>
+        <DS name="17: RIET" paraPos="1"></DS>
+        <DS name="18: TIGHT DS" paraPos="1"></DS>
+        <DS name="19: FULL DS" paraPos="1"></DS>
+        <DS name="20: GOLD CLON" paraPos="1"></DS>
+
+        <DS name="21: VX YUBE OD" paraPos="1"></DS>
+        <DS name="22: TIGHT METAL" paraPos="1"></DS>
+        <DS name="23: THE JUICER" paraPos="1"></DS>
+        <DS name="24: RUMBLE DRIVE" paraPos="1"></DS>
+        <DS name="25: SOLO" paraPos="1"></DS>
+        <DS name="26: BLUES MOOD" paraPos="1"></DS>
+        <DS name="27: BLUES CRAB" paraPos="1"></DS>
+        <DS name="28: HUSTLE DRIVE" paraPos="1"></DS>
+
+    </chain>
+
+    <chain name="AMP">
+        <AMP name="01: 65 US DX" paraPos="1">
+            <para name="GAIN" type="0">0_100_1_0_</para>
+            <para name="BASS" type="0">0_100_1_0_</para>
+            <para name="MID" type="0">0_100_1_0_</para>
+            <para name="TREBLE" type="0">0_100_1_0_</para>
+            <para name="PRES" type="0">0_100_1_0_</para>
+            <para name="MST" type="0">0_100_1_0_</para>
+        </AMP>
+        <AMP name="02: 65 US TW" paraPos="1"></AMP>
+        <AMP name="03: 59 US BASS" paraPos="1"></AMP>
+        <AMP name="04: US SONIC" paraPos="1"></AMP>
+        <AMP name="05: US BLUES CL" paraPos="1"></AMP>
+        <AMP name="06: US BLUES OD" paraPos="1"></AMP>
+        <AMP name="07: J800" paraPos="1"></AMP>
+        <AMP name="08: J900" paraPos="1">
+            <para name="GAIN" type="0">0_100_1_0_</para>
+            <para name="BASS" type="0">0_100_1_0_</para>
+            <para name="MID" type="0">0_100_1_0_</para>
+            <para name="TREBLE" type="0">0_100_1_0_</para>
+            <para name="PRES" type="0">0_100_1_0_</para>
+            <para name="MST" type="0">0_100_1_0_</para>
+        </AMP>
+        <AMP name="09: PLX100" paraPos="1"></AMP>
+        <AMP name="10: E650 CL" paraPos="1"></AMP>
+        <AMP name="11: E650 DS" paraPos="1"></AMP>
+        <AMP name="12: POWER BELL CL" paraPos="1"></AMP>
+        <AMP name="13: POWER BELL DS" paraPos="1"></AMP>
+        <AMP name="14: BLACKNIGHT CL" paraPos="1"></AMP>
+        <AMP name="15: BLACKNIGHT DS" paraPos="1"></AMP>
+        <AMP name="16: MARKIII CL" paraPos="1"></AMP>
+        <AMP name="17: MARKIII DS" paraPos="1"></AMP>
+        <AMP name="18: MARKV CL" paraPos="1"></AMP>
+        <AMP name="19: MARKV DS" paraPos="1"></AMP>
+        <AMP name="20: TRI REC CL" paraPos="1"></AMP>
+        <AMP name="21: TRI REC DS" paraPos="1"></AMP>
+        <AMP name="22: ROCK VRB CL" paraPos="1"></AMP>
+        <AMP name="23: ROCK VRB DS" paraPos="1"></AMP>
+        <AMP name="24: CITRUS 30" paraPos="1"></AMP>
+        <AMP name="25: CITRUS 50" paraPos="1"></AMP>
+        <AMP name="26: SLOW 100 CR" paraPos="1"></AMP>
+        <AMP name="27: SLOW 100 DS" paraPos="1"></AMP>
+        <AMP name="28: DR.ZEE 18 JR" paraPos="1"></AMP>
+        <AMP name="29: DR.ZEE RECK" paraPos="1"></AMP>
+        <AMP name="30: JET 100H CL" paraPos="1"></AMP>
+        <AMP name="31: JET 100H OD" paraPos="1"></AMP>
+        <AMP name="32: JAZZ 120" paraPos="1"></AMP>
+        <AMP name="33: UK30 CL" paraPos="1"></AMP>
+        <AMP name="34: UK30 OD" paraPos="1"></AMP>
+        <AMP name="35: HWT 103" paraPos="1"></AMP>
+        <AMP name="36: PV 5050 CL" paraPos="1"></AMP>
+        <AMP name="37: PV 5050 DS" paraPos="1"></AMP>
+        <AMP name="38: REGAL TONE CL" paraPos="1"></AMP>
+        <AMP name="39: REGAL TONE OD1" paraPos="1"></AMP>
+        <AMP name="40: REGAL TONE OD2" paraPos="1"></AMP>
+        <AMP name="41: CAROL CL" paraPos="1"></AMP>
+        <AMP name="42: CAROL OD" paraPos="1"></AMP>
+        <AMP name="43: CARDEFF" paraPos="1"></AMP>
+        <AMP name="44: EV 5050 CL" paraPos="1"></AMP>
+        <AMP name="45: EV 5050 DS" paraPos="1"></AMP>
+        <AMP name="46: HT CLUB CL" paraPos="1"></AMP>
+        <AMP name="47: HT CLUB DS" paraPos="1"></AMP>
+        <AMP name="48: HUGEN CL" paraPos="1"></AMP>
+        <AMP name="49: HUGEN OD" paraPos="1"></AMP>
+        <AMP name="50: HUGEN DS" paraPos="1"></AMP>
+        <AMP name="51: KOCHE OD" paraPos="1"></AMP>
+        <AMP name="52: KOCHE DS" paraPos="1"></AMP>
+        <AMP name="53: ACOUSTIC 1" paraPos="1"></AMP>
+        <AMP name="54: ACOUSTIC 2" paraPos="1"></AMP>
+        <AMP name="55: ACOUSTIC 3" paraPos="1"></AMP>
+
+        <AMP name="56: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="57: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="58: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="59: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="60: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="61: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="62: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="63: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="64: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="65: EMPTY" paraPos="1" import="1"></AMP>
+
+        <AMP name="66: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="67: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="68: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="69: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="70: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="71: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="72: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="73: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="74: EMPTY" paraPos="1" import="1"></AMP>
+        <AMP name="75: EMPTY" paraPos="1" import="1"></AMP>
+    </chain>
+
+    <chain name="CAB">
+        <CAB name="01: US DLX 112" paraPos="1">
+            <para name="TUBE" type="1">OFF_EL34_EL84_6L6_6V6</para>
+            <para name="MIC" type="1">SM57_U47_U87_NT1_MD421_MD441_MXL2001_MXL2003_C3000_C4000B</para>
+            <para name="CENTER" type="0">0_100_1_0_</para>
+            <!--para>
+                <subPara name="CENTER1" type="0" controlled="0">0_100_1_0_</subPara>
+                <subPara name="CENTER2" type="1" controlled="0">OFF_EL34_EL84_6L6_6V6</subPara>
+                <subPara name="CENTER3" type="2" controlled="0">0_100#SM57#U47#U87#NT1_1_0_</subPara>
+                <subPara name="CENTER4" type="0" controlled="0">0_100_1_0_</subPara>
+                <subPara name="CENTER5" type="1" controlled="0">OFF_EL34_EL84_6L6_6V6</subPara>
+            </para-->
+            <para name="DISTANCE" type="0">0_100_1_0_</para>
+        </CAB>
+        <CAB name="02: US TWN 212" paraPos="1"></CAB>
+        <CAB name="03: US BASS 410" paraPos="1"></CAB>
+        <CAB name="04: SONIC 112" paraPos="1"></CAB>
+        <CAB name="05: BLUES 112" paraPos="1"></CAB>
+        <CAB name="06: 1960 412" paraPos="1">
+            <para name="TUBE" type="1">OFF_EL34_EL84_6L6_6V6</para>
+            <para name="MIC" type="1">SM57_U47_U87_NT1_MD421_MD441_MXL2001_MXL2003_C3000_C4000B</para>
+            <para name="CENTER" type="0">0_100_1_0_</para>
+            <para name="DISTANCE" type="0">0_100_1_0_</para>
+        </CAB>
+        <CAB name="07: EAGLE P412" paraPos="1"></CAB>
+        <CAB name="08: EAGLE S412" paraPos="1"></CAB>
+        <CAB name="09: MARK 112" paraPos="1"></CAB>
+        <CAB name="10: REC 412" paraPos="1"></CAB>
+        <CAB name="11: CITRUS 412" paraPos="1"></CAB>
+        <CAB name="12: CITRUS 212" paraPos="1"></CAB>
+        <CAB name="13: SLOW 412" paraPos="1"></CAB>
+        <CAB name="14: DR.ZEE 112" paraPos="1"></CAB>
+        <CAB name="15: DR.ZEE 212" paraPos="1"></CAB>
+        <CAB name="16: JAZZ 212" paraPos="1"></CAB>
+        <CAB name="17: UK 212" paraPos="1"></CAB>
+        <CAB name="18: HWT 412" paraPos="1"></CAB>
+        <CAB name="19: PV 5050 412" paraPos="1"></CAB>
+        <CAB name="20: REGAL TONE 110" paraPos="1"></CAB>
+        <CAB name="21: TWO STONES 212" paraPos="1"></CAB>
+        <CAB name="22: CARDEFF 112" paraPos="1"></CAB>
+        <CAB name="23: EV 5050 412" paraPos="1"></CAB>
+        <CAB name="24: HT 412" paraPos="1"></CAB>
+        <CAB name="25: GAS STATION 412" paraPos="1"></CAB>
+        <CAB name="26: ACOUSTIC112" paraPos="1"></CAB>
+        <CAB name="27: EMPTY" paraPos="27" import="1">
+            <para name="TUBE" type="1">OFF_EL34_EL84_6L6_6V6</para>
+        </CAB>
+        <CAB name="28: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="29: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="30: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="31: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="32: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="33: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="34: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="35: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="36: EMPTY" paraPos="27" import="1"></CAB>
+
+        <CAB name="37: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="38: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="39: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="40: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="41: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="42: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="43: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="44: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="45: EMPTY" paraPos="27" import="1"></CAB>
+        <CAB name="46: EMPTY" paraPos="27" import="1"></CAB>
+
+    </chain>
+
+    <chain name="NS GATE">
+        <NS name="01: NOISE KILLER" paraPos="1">
+            <para name="THRES" type="0">0_100_1_0_</para>
+        </NS>
+        <NS name="02: INTEL REDUCER" paraPos="2">
+            <para name="SENS" type="0">0_100_1_0_</para>
+        </NS>
+        <NS name="03: NOISE GATE" paraPos="3">
+            <para name="ATTACK" type="0">0_100_1_0_</para>
+            <para name="RELEASE" type="0">0_100_1_0_</para>
+            <para name="THRES" type="0">0_100_1_0_</para>
+        </NS>
+    </chain>
+
+    <chain name="EQ">
+        <EQ name="01: MOOER G" paraPos="1">
+            <para name="100Hz" type="0">-16_16_1_0_</para>
+            <para name="250Hz" type="0">-16_16_1_0_</para>
+            <para name="630Hz" type="0">-16_16_1_0_</para>
+            <para name="1.6KHz" type="0">-16_16_1_0_</para>
+            <para name="4KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="02: MOOER HM" paraPos="2">
+            <para name="80Hz" type="0">-16_16_1_0_</para>
+            <para name="240Hz" type="0">-16_16_1_0_</para>
+            <para name="750Hz" type="0">-16_16_1_0_</para>
+            <para name="2.2KHz" type="0">-16_16_1_0_</para>
+            <para name="6.6KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="03: MOOER G-6" paraPos="3">
+            <para name="100Hz" type="0">-16_16_1_0_</para>
+            <para name="200Hz" type="0">-16_16_1_0_</para>
+            <para name="400Hz" type="0">-16_16_1_0_</para>
+            <para name="800Hz" type="0">-16_16_1_0_</para>
+            <para name="1.6KHz" type="0">-16_16_1_0_</para>
+            <para name="3.2KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="04: CUSTOM EQ" paraPos="4">
+            <para name="GAIN1" type="0">-16_16_1_0_</para>
+            <para name="FREQ1" type="0">0_18000_1_0_ Hz</para>
+            <para name="GAIN2" type="0">-16_16_1_0_</para>
+            <para name="FREQ2" type="0">0_18000_1_0_ Hz</para>
+            <para name="GAIN3" type="0">-16_16_1_0_</para>
+            <para name="FREQ3" type="0">0_18000_1_0_ Hz</para>
+        </EQ>
+    </chain>
+
+    <chain name="MOD">
+        <MOD name="01: PHASER" paraPos="1">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="DEPTH" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="02: STEP PHASER" paraPos="1"></MOD>
+        <MOD name="03: FAT PHASER" paraPos="1"></MOD>
+        <MOD name="04: FLANGER" paraPos="4">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="F.BACK" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="05: JET-FLANGER" paraPos="4">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="F.BACK" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="06: TREMOLO" paraPos="6">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="07: STUTTER" paraPos="6"></MOD>
+        <MOD name="08: VIBRATO" paraPos="8">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="DEPTH" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="09: PITCH SHIFT" paraPos="9">
+            <para name="PITCH" type="0">-12_12_0.1_1_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="10: DETUNE" paraPos="10">
+            <para name="PITCH" type="0">-20_20_0.1_1_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="11: ROTARY" paraPos="6"></MOD>
+        <MOD name="12: ANA-CHORUS" paraPos="12">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+            <para name="DEPTH" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="13: TRI-CHORUS" paraPos="12"></MOD>
+        <MOD name="14: RING MOD" paraPos="6"></MOD>
+        <MOD name="15: Q-FILTER" paraPos="15">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="Q" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="16: HIGH PASS" paraPos="16">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="RANGE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="17: LOW PASS" paraPos="16"></MOD>
+        <MOD name="18: SLOW GEAR" paraPos="18">
+            <para name="RISE" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="19: LOFI" paraPos="19">
+            <para name="SAMPLE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="BIT" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="20: DUAL PHASER" paraPos="20">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="DEPTH" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="21: MODERN PHASER" paraPos="20"></MOD>
+        <MOD name="22: FLANGER PRO" paraPos="22">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="FEEDBACK" type="0">0_100_1_0_</para>
+            <para name="DELAY" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="23: MODERN ROTARY" paraPos="23">
+            <para name="RATE" type="0">0_100_1_0_</para>
+            <para name="MIX" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="24: OPTICAL TRMOLO" paraPos="24">
+            <para name="SPEED" type="0">0_100_1_0_</para>
+            <para name="INTENSITY" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="25: OCTAVE" paraPos="25">
+            <para name="SUB" type="0">0_100_1_0_</para>
+            <para name="SUB TONE" type="0">0_100_1_0_</para>
+            <para name="UPPER" type="0">0_100_1_0_</para>
+            <para name="UPPER TONE" type="0">0_100_1_0_</para>
+            <para name="DRY" type="0">0_100_1_0_</para>
+        </MOD>
+    </chain>
+
+    <chain name="DELAY">
+        <DELAY name="01: DIGITAL" paraPos="1">
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="F.BACK" type="0">0_100_1_0_</para>
+            <para name="TIME" type="0">40_2500_1_0_ ms</para>
+            <para name="SUB-D" type="1">OFF_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+        </DELAY>
+        <DELAY name="02: ANALOG" paraPos="1"></DELAY>
+        <DELAY name="03: REAL" paraPos="1"></DELAY>
+        <DELAY name="04: TAPE" paraPos="1"></DELAY>
+        <DELAY name="05: MOD" paraPos="1"></DELAY>
+        <DELAY name="06: REVERSE" paraPos="1"></DELAY>
+        <DELAY name="07: PINGPONG" paraPos="1"></DELAY>
+        <DELAY name="08: DYNAMIC" paraPos="8">
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="F.BACK" type="0">0_100_1_0_</para>
+            <para name="TIME" type="0">40_2500_1_0_ ms</para>
+            <para name="SUB-D" type="1">OFF_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+            <para name="THRES" type="0">0_100_1_0_</para>
+        </DELAY>
+        <DELAY name="09: DUAL DELAY" paraPos="9">
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="F.BACK" type="0">0_100_1_0_</para>
+            <para name="TIME A" type="0">40_2500_1_0_ ms</para>
+            <para name="SUB A" type="1">OFF_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+            <para name="TIME B" type="0">40_2500_1_0_ ms</para>
+            <para name="SUB B" type="1">OFF_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+        </DELAY>
+    </chain>
+
+    <chain name="REVERB">
+        <REVERB name="01: ROOM" paraPos="1">
+            <para name="P.DELAY" type="0">0_500_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="DECAY" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </REVERB>
+        <REVERB name="02: HALL" paraPos="1"></REVERB>
+        <REVERB name="03: CHURCH" paraPos="1"></REVERB>
+        <REVERB name="04: PLATE" paraPos="1"></REVERB>
+        <REVERB name="05: SPRING" paraPos="1">
+            <para name="P.DELAY" type="0">0_500_1_0_</para>
+            <para name="LEVEL" type="0">0_100_1_0_</para>
+            <para name="DECAY" type="0">0_100_1_0_</para>
+            <para name="TONE" type="0">0_100_1_0_</para>
+        </REVERB>
+        <REVERB name="06: MOD" paraPos="1"></REVERB>
+        <REVERB name="07: CAVE" paraPos="1"></REVERB>
+        <REVERB name="08: SHIMMER" paraPos="8">
+           <para name="P.DELAY" type="0">0_500_1_0_</para>
+           <para name="LEVEL" type="0">0_100_1_0_</para>
+           <para name="DECAY" type="0">0_100_1_0_</para>
+           <para name="TONE" type="0">0_100_1_0_</para>
+           <para name="SHIMMER" type="0">0_100_1_0_</para>
+        </REVERB>
+    </chain>
+</resources>

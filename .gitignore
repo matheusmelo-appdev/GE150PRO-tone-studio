@@ -1,0 +1,15 @@
+/target/
+/node_modules/
+/dist/
+/src-tauri/target/
+/src-tauri/gen/schemas/
+.DS_Store
+/.agents/
+/graphify-out/
+/skills-lock.json
+/generated/
+/tones/
+/.env
+/.env.*
+!/.env.example
+*.dSYM/

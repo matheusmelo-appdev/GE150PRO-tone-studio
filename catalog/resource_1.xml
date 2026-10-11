@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <chain name="前置">
+        <FX name="01: GCB95 哇音" paraPos="1">
+            <para name="带宽" type="0">0_100_1_0_</para>
+            <para name="频点" type="0">0_100_1_0_</para>
+            <para name="峰值" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="02: 535 哇音" paraPos="1"></FX>
+        <FX name="03: 自动哇音" paraPos="3">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="范围" type="0">0_100_1_0_</para>
+            <para name="峰值" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="04: 模拟人声AH哇音" paraPos="3"></FX>
+        <FX name="05: 模拟人声OH哇音" paraPos="3"></FX>
+        <FX name="06: 触控哇音" paraPos="6">
+            <para name="启动" type="0">0_100_1_0_</para>
+            <para name="灵敏度" type="0">0_100_1_0_</para>
+            <para name="峰值" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="07: 黄压缩" paraPos="7">
+            <para name="启动" type="0">0_100_1_0_</para>
+            <para name="阈值" type="0">0_100_1_0_</para>
+            <para name="压缩比" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="08: 蓝压缩" paraPos="7"></FX>
+
+        <FX name="09: S压缩" paraPos="9">
+            <para name="灵敏度" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="10: 红压缩" paraPos="9"></FX>
+        <FX name="11: 限幅器" paraPos="11">
+            <para name="阈值" type="0">0_100_1_0_ </para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+        <FX name="12: 噪音衰减器" paraPos="12">
+            <para name="阈值" type="0">0_100_1_0_</para>
+            <para name="深度" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </FX>
+    </chain>
+
+    <chain name="失真">
+        <DS name="01: 巴特勒 电子管过载" paraPos="1">
+            <para name=" 音量 " type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+            <para name="增益" type="0">0_100_1_0_</para>
+        </DS>
+        <DS name="02: 依班娜 808" paraPos="1"></DS>
+        <DS name="03: 魔耳 纯净激励" paraPos="1"></DS>
+        <DS name="04: 魔耳 弗雷克斯激励" paraPos="1"></DS>
+        <DS name="05: 巴伯 直爽过载" paraPos="1"></DS>
+        <DS name="06: 黑老鼠失真" paraPos="1"></DS>
+        <DS name="07: 魔耳 法兹脸" paraPos="1"></DS>
+        <DS name="08: 大马夫法兹" paraPos="1"></DS>
+        <DS name="09: 金属地带" paraPos="1"></DS>
+        <DS name="10: 金属大师" paraPos="1"></DS>
+        <DS name="11: 福通 OCD" paraPos="1"></DS>
+        <DS name="12: 科克伦 提米过载" paraPos="1"></DS>
+        <DS name="13: 福通 饱满过载" paraPos="1"></DS>
+        <DS name="14: 玛歇尔 黑失真" paraPos="1"></DS>
+        <DS name="15: 克索迪克 BB过载" paraPos="1"></DS>
+        <DS name="16: 克索迪克 BB+过载" paraPos="1"></DS>
+        <DS name="17: 瑟尔 瑞欧特失真" paraPos="1"></DS>
+        <DS name="18: 安培推克 紧致失真" paraPos="1"></DS>
+        <DS name="19: 福通 GT500" paraPos="1"></DS>
+        <DS name="20: 金人马" paraPos="1"></DS>
+
+        <DS name="21: 沃科斯 电子管过载" paraPos="1"></DS>
+        <DS name="22: 安培推克 紧致金属" paraPos="1"></DS>
+        <DS name="23: 魔耳 榨汁机过载" paraPos="1"></DS>
+        <DS name="24: 魔耳 轰鸣过载" paraPos="1"></DS>
+        <DS name="25: 魔耳 独奏失真" paraPos="1"></DS>
+        <DS name="26: 魔耳 细腻蓝调" paraPos="1"></DS>
+        <DS name="27: 魔耳 粗放蓝调" paraPos="1"></DS>
+        <DS name="28: 魔耳 哈索过载" paraPos="1"></DS>
+    </chain>
+
+    <chain name="箱头">
+        <AMP name="01: 纷达 65豪华混响" paraPos="1">
+            <para name="增益" type="0">0_100_1_0_</para>
+            <para name="低频" type="0">0_100_1_0_</para>
+            <para name="中频" type="0">0_100_1_0_</para>
+            <para name="高频" type="0">0_100_1_0_</para>
+            <para name="明亮度" type="0">0_100_1_0_</para>
+            <para name="  音量  " type="0">0_100_1_0_</para>
+        </AMP>
+        <AMP name="02: 纷达 65双重混响" paraPos="1"></AMP>
+        <AMP name="03: 纷达 59巴斯曼" paraPos="1"></AMP>
+        <AMP name="04: 纷达 超音速" paraPos="1"></AMP>
+        <AMP name="05: 纷达 豪华布鲁斯 清音" paraPos="1"></AMP>
+        <AMP name="06: 纷达 豪华布鲁斯 过载" paraPos="1"></AMP>
+        <AMP name="07: 玛歇尔 J800" paraPos="1"></AMP>
+        <AMP name="08: 玛歇尔 J900" paraPos="1"></AMP>
+        <AMP name="09: 玛歇尔 普列克斯100" paraPos="1"></AMP>
+        <AMP name="10: 恩歌 650 清音" paraPos="1"></AMP>
+        <AMP name="11: 恩歌 650 失真" paraPos="1"></AMP>
+        <AMP name="12: 恩歌 爆球 清音" paraPos="1"></AMP>
+        <AMP name="13: 恩歌 爆球 失真" paraPos="1"></AMP>
+        <AMP name="14: 恩歌 布莱克摩尔 清音" paraPos="1"></AMP>
+        <AMP name="15: 恩歌 布莱克摩尔 失真" paraPos="1"></AMP>
+        <AMP name="16: 梅萨布基 马克三 清音" paraPos="1"></AMP>
+        <AMP name="17: 梅萨布基 马克三 失真" paraPos="1"></AMP>
+        <AMP name="18: 梅萨布基 马克五 清音" paraPos="1"></AMP>
+        <AMP name="19: 梅萨布基 马克五 失真" paraPos="1"></AMP>
+        <AMP name="20: 梅萨布基 三重整流 清音" paraPos="1"></AMP>
+        <AMP name="21: 梅萨布基 三重整流 失真" paraPos="1"></AMP>
+        <AMP name="22: 橘子 摇滚人 清音" paraPos="1"></AMP>
+        <AMP name="23: 橘子 摇滚人 失真" paraPos="1"></AMP>
+        <AMP name="24: 橘子 AD30" paraPos="1"></AMP>
+        <AMP name="25: 橘子 OR50" paraPos="1"></AMP>
+        <AMP name="26: 索尔达诺 S100 过载" paraPos="1"></AMP>
+        <AMP name="27: 索尔达诺 S100 失真" paraPos="1"></AMP>
+        <AMP name="28: Z博士 马兹小18" paraPos="1"></AMP>
+        <AMP name="29: Z博士 Z字号沉船" paraPos="1"></AMP>
+        <AMP name="30: 喷气都市 JCA100H 清音" paraPos="1"></AMP>
+        <AMP name="31: 喷气都市 JCA100H 过载" paraPos="1"></AMP>
+        <AMP name="32: 罗岚 JC120" paraPos="1"></AMP>
+        <AMP name="33: 沃科斯 AC30 清音" paraPos="1"></AMP>
+        <AMP name="34: 沃科斯 AC30 过载" paraPos="1"></AMP>
+        <AMP name="35: 高瓦特 DR130" paraPos="1"></AMP>
+        <AMP name="36: 佰威 5150 清音" paraPos="1"></AMP>
+        <AMP name="37: 佰威 5150 失真" paraPos="1"></AMP>
+        <AMP name="38: 帝王之声 猎鹰 清音" paraPos="1"></AMP>
+        <AMP name="39: 帝王之声 猎鹰 过载1" paraPos="1"></AMP>
+        <AMP name="40: 帝王之声 猎鹰 过载2" paraPos="1"></AMP>
+        <AMP name="41: 双石 卡罗 清音" paraPos="1"></AMP>
+        <AMP name="42: 双石 卡罗 过载" paraPos="1"></AMP>
+        <AMP name="43: 双石 卡迪夫" paraPos="1"></AMP>
+        <AMP name="44: 范海伦 5150 清音" paraPos="1"></AMP>
+        <AMP name="45: 范海伦 5150 失真" paraPos="1"></AMP>
+        <AMP name="46: 暗星 HT100 清音" paraPos="1"></AMP>
+        <AMP name="47: 暗星 HT100 失真" paraPos="1"></AMP>
+        <AMP name="48: 迪赛尔 哈根 清音" paraPos="1"></AMP>
+        <AMP name="49: 迪赛尔 哈根 过载" paraPos="1"></AMP>
+        <AMP name="50: 迪赛尔 哈根 失真" paraPos="1"></AMP>
+        <AMP name="51: 科赫 力量之声 过载" paraPos="1"></AMP>
+        <AMP name="52: 科赫 力量之声 失真" paraPos="1"></AMP>
+        <AMP name="53: 原声吉他模拟 1" paraPos="1"></AMP>
+        <AMP name="54: 原声吉他模拟 2" paraPos="1"></AMP>
+        <AMP name="55: 原声吉他模拟 3" paraPos="1"></AMP>
+
+        <AMP name="56: 空" paraPos="1" import="1"></AMP>
+        <AMP name="57: 空" paraPos="1" import="1"></AMP>
+        <AMP name="58: 空" paraPos="1" import="1"></AMP>
+        <AMP name="59: 空" paraPos="1" import="1"></AMP>
+        <AMP name="60: 空" paraPos="1" import="1"></AMP>
+        <AMP name="61: 空" paraPos="1" import="1"></AMP>
+        <AMP name="62: 空" paraPos="1" import="1"></AMP>
+        <AMP name="63: 空" paraPos="1" import="1"></AMP>
+        <AMP name="64: 空" paraPos="1" import="1"></AMP>
+        <AMP name="65: 空" paraPos="1" import="1"></AMP>
+
+        <AMP name="66: 空" paraPos="1" import="1"></AMP>
+        <AMP name="67: 空" paraPos="1" import="1"></AMP>
+        <AMP name="68: 空" paraPos="1" import="1"></AMP>
+        <AMP name="69: 空" paraPos="1" import="1"></AMP>
+        <AMP name="70: 空" paraPos="1" import="1"></AMP>
+        <AMP name="71: 空" paraPos="1" import="1"></AMP>
+        <AMP name="72: 空" paraPos="1" import="1"></AMP>
+        <AMP name="73: 空" paraPos="1" import="1"></AMP>
+        <AMP name="74: 空" paraPos="1" import="1"></AMP>
+        <AMP name="75: 空" paraPos="1" import="1"></AMP>
+    </chain>
+
+    <chain name="箱体">
+        <CAB name="01: 纷达 豪华混响 112" paraPos="1">
+            <para name="电子管" type="1">关闭_EL34_EL84_6L6_6V6</para>
+            <para name="麦克风" type="1">SM57_U47_U87_NT1_MD421_MD441_MXL2001_MXL2003_C3000_C4000B</para>
+            <para name="中心偏移" type="0">0_100_1_0_</para>
+            <para name="箱体距离" type="0">0_100_1_0_</para>
+        </CAB>
+        <CAB name="02: 纷达 双重混响 212" paraPos="1"></CAB>
+        <CAB name="03: 纷达 巴斯曼 410" paraPos="1"></CAB>
+        <CAB name="04: 纷达 超音速 112" paraPos="1"></CAB>
+        <CAB name="05: 纷达 豪华布鲁斯 112" paraPos="1"></CAB>
+        <CAB name="06: 玛歇尔 1960A 412" paraPos="1"></CAB>
+        <CAB name="07: 恩歌 专业XXL 412" paraPos="1"></CAB>
+        <CAB name="08: 恩歌 复古XXL 412" paraPos="1"></CAB>
+        <CAB name="09: 梅萨布基 马克 112" paraPos="1"></CAB>
+        <CAB name="10: 梅萨布基 整流者 412" paraPos="1"></CAB>
+        <CAB name="11: 橘子 PPC 412" paraPos="1"></CAB>
+        <CAB name="12: 橘子 PPC 212" paraPos="1"></CAB>
+        <CAB name="13: 索尔达诺 412" paraPos="1"></CAB>
+        <CAB name="14: Z博士 马兹 112" paraPos="1"></CAB>
+        <CAB name="15: Z博士 Z字号沉船 212" paraPos="1"></CAB>
+        <CAB name="16: 罗岚 JC120 212" paraPos="1"></CAB>
+        <CAB name="17: 沃科斯 AC30 212" paraPos="1"></CAB>
+        <CAB name="18: 高瓦特 AP 412" paraPos="1"></CAB>
+        <CAB name="19: 佰威 5150 412" paraPos="1"></CAB>
+        <CAB name="20: 帝王之声 猎鹰 110" paraPos="1"></CAB>
+        <CAB name="21: 双石 212" paraPos="1"></CAB>
+        <CAB name="22: 双石 112" paraPos="1"></CAB>
+        <CAB name="23: 范海伦 5150 412" paraPos="1"></CAB>
+        <CAB name="24: 暗星 HTV 412" paraPos="1"></CAB>
+        <CAB name="25: 迪赛尔 哈根 412" paraPos="1"></CAB>
+        <CAB name="26: 原声吉他 112" paraPos="1"></CAB>
+        <CAB name="27: 空" paraPos="27" import="1">
+            <para name="电子管" type="1">关闭_EL34_EL84_6L6_6V6</para>
+        </CAB>
+        <CAB name="28: 空" paraPos="27" import="1"></CAB>
+        <CAB name="29: 空" paraPos="27" import="1"></CAB>
+        <CAB name="30: 空" paraPos="27" import="1"></CAB>
+        <CAB name="31: 空" paraPos="27" import="1"></CAB>
+        <CAB name="32: 空" paraPos="27" import="1"></CAB>
+        <CAB name="33: 空" paraPos="27" import="1"></CAB>
+        <CAB name="34: 空" paraPos="27" import="1"></CAB>
+        <CAB name="35: 空" paraPos="27" import="1"></CAB>
+        <CAB name="36: 空" paraPos="27" import="1"></CAB>
+        <CAB name="37: 空" paraPos="27" import="1"></CAB>
+        <CAB name="38: 空" paraPos="27" import="1"></CAB>
+        <CAB name="39: 空" paraPos="27" import="1"></CAB>
+        <CAB name="40: 空" paraPos="27" import="1"></CAB>
+        <CAB name="41: 空" paraPos="27" import="1"></CAB>
+        <CAB name="42: 空" paraPos="27" import="1"></CAB>
+        <CAB name="43: 空" paraPos="27" import="1"></CAB>
+        <CAB name="44: 空" paraPos="27" import="1"></CAB>
+        <CAB name="45: 空" paraPos="27" import="1"></CAB>
+        <CAB name="46: 空" paraPos="27" import="1"></CAB>
+
+    </chain>
+
+    <chain name="降噪">
+        <NS name="01: 噪音消除器" paraPos="1">
+            <para name="阈值" type="0">0_100_1_0_</para>
+        </NS>
+        <NS name="02: 噪音衰减器" paraPos="2">
+            <para name="灵敏度" type="0">0_100_1_0_</para>
+        </NS>
+        <NS name="03: 噪音门" paraPos="3">
+            <para name="启动" type="0">0_100_1_0_</para>
+            <para name="释放" type="0">0_100_1_0_</para>
+            <para name="阈值" type="0">0_100_1_0_</para>
+        </NS>
+    </chain>
+
+    <chain name="均衡">
+        <EQ name="01: 魔耳 G均衡" paraPos="1">
+            <para name="100Hz" type="0">-16_16_1_0_</para>
+            <para name="250Hz" type="0">-16_16_1_0_</para>
+            <para name="630Hz" type="0">-16_16_1_0_</para>
+            <para name="1.6KHz" type="0">-16_16_1_0_</para>
+            <para name="4KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="02: 魔耳 HM均衡" paraPos="2">
+            <para name="80Hz" type="0">-16_16_1_0_</para>
+            <para name="240Hz" type="0">-16_16_1_0_</para>
+            <para name="750Hz" type="0">-16_16_1_0_</para>
+            <para name="2.2KHz" type="0">-16_16_1_0_</para>
+            <para name="6.6KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="03: 魔耳 G6均衡" paraPos="3">
+            <para name="100Hz" type="0">-16_16_1_0_</para>
+            <para name="200Hz" type="0">-16_16_1_0_</para>
+            <para name="400Hz" type="0">-16_16_1_0_</para>
+            <para name="800Hz" type="0">-16_16_1_0_</para>
+            <para name="1.6KHz" type="0">-16_16_1_0_</para>
+            <para name="3.2KHz" type="0">-16_16_1_0_</para>
+        </EQ>
+        <EQ name="04: 自定义均衡" paraPos="4">
+            <para name="增益1" type="0">-16_16_1_0_</para>
+            <para name="频点1" type="0">0_18000_1_0_ Hz</para>
+            <para name="增益2" type="0">-16_16_1_0_</para>
+            <para name="频点2" type="0">0_18000_1_0_ Hz</para>
+            <para name="增益3" type="0">-16_16_1_0_</para>
+            <para name="频点3" type="0">0_18000_1_0_ Hz</para>
+        </EQ>
+    </chain>
+
+    <chain name="调制">
+        <MOD name="01: 经典移相" paraPos="1">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="深度" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="02: 方波移相" paraPos="1"></MOD>
+        <MOD name="03: 肥厚移相" paraPos="1"></MOD>
+        <MOD name="04: 经典镶边" paraPos="4">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="反馈" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="05: 喷气镶边" paraPos="4"></MOD>
+        <MOD name="06: 颤音" paraPos="6">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="07: 方波颤音" paraPos="6"></MOD>
+        <MOD name="08: 音高颤音" paraPos="8">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="深度" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="09: 移调" paraPos="9">
+            <para name="音高" type="0">-12_12_0.1_1_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="10: 调谐" paraPos="10">
+            <para name="音高" type="0">-20_20_0.1_1_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="11: 回旋喇叭" paraPos="6"></MOD>
+        <MOD name="12: 模拟合唱" paraPos="12">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+            <para name="深度" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="13: 三重合唱" paraPos="12"></MOD>
+        <MOD name="14: 环形调制" paraPos="6"></MOD>
+        <MOD name="15: 带宽滤波器" paraPos="15">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="带宽" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="16: 高通滤波器" paraPos="16">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="范围" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="17: 低通滤波器" paraPos="16"></MOD>
+        <MOD name="18: 慢发音" paraPos="18">
+            <para name="音头" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="19: 低保真" paraPos="19">
+            <para name="采样率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="比特率" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="20: 多段移相" paraPos="20">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="深度" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="21: 现代移相" paraPos="20"></MOD>
+        <MOD name="22: 专业镶边" paraPos="22">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="反馈" type="0">0_100_1_0_</para>
+            <para name=" 延迟 " type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="23: 现代回旋" paraPos="23">
+            <para name="速率" type="0">0_100_1_0_</para>
+            <para name="混合比" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="24: 光电式颤音" paraPos="24">
+            <para name="速度" type="0">0_100_1_0_</para>
+            <para name="强度量" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </MOD>
+        <MOD name="25: 八度" paraPos="25">
+            <para name="低八度音量" type="0">0_100_1_0_</para>
+            <para name="低八度音色" type="0">0_100_1_0_</para>
+            <para name="高八度音量" type="0">0_100_1_0_</para>
+            <para name="高八度音色" type="0">0_100_1_0_</para>
+            <para name="干声" type="0">0_100_1_0_</para>
+        </MOD>
+    </chain>
+
+    <chain name="延迟">
+        <DELAY name="01: 数字延迟" paraPos="1">
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="反馈" type="0">0_100_1_0_</para>
+            <para name="时值" type="0">40_2500_1_0_ ms</para>
+            <para name="打点关联" type="1">关闭_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+        </DELAY>
+        <DELAY name="02: 模拟延迟" paraPos="1"></DELAY>
+        <DELAY name="03: 回声延迟" paraPos="1"></DELAY>
+        <DELAY name="04: 磁带延迟" paraPos="1"></DELAY>
+        <DELAY name="05: 调制延迟" paraPos="1"></DELAY>
+        <DELAY name="06: 反向延迟" paraPos="1"></DELAY>
+        <DELAY name="07: 乒乓延迟" paraPos="1"></DELAY>
+        <DELAY name="08: 数字动态延迟" paraPos="8">
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="反馈" type="0">0_100_1_0_</para>
+            <para name="时值" type="0">40_2500_1_0_ ms</para>
+            <para name="打点关联" type="1">关闭_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+            <para name="阈值" type="0">0_100_1_0_</para>
+        </DELAY>
+        <DELAY name="09: 双重延迟" paraPos="9">
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="反馈" type="0">0_100_1_0_</para>
+            <para name="时值 1" type="0">40_2500_1_0_ ms</para>
+            <para name="打点关联 1" type="1">关闭_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+            <para name="时值 2" type="0">40_2500_1_0_ ms</para>
+            <para name="打点关联 2" type="1">关闭_1/4_1/4T_1/4D_1/8_1/8T_1/8D_1/16_1/16T_1/16D</para>
+        </DELAY>
+    </chain>
+
+    <chain name="混响">
+        <REVERB name="01: 房间混响" paraPos="1">
+            <para name="预延迟" type="0">0_500_1_0_</para>
+            <para name="音量" type="0">0_100_1_0_</para>
+            <para name="衰减时间" type="0">0_100_1_0_</para>
+            <para name="音色" type="0">0_100_1_0_</para>
+        </REVERB>
+        <REVERB name="02: 大厅混响" paraPos="1"></REVERB>
+        <REVERB name="03: 教堂混响" paraPos="1"></REVERB>
+        <REVERB name="04: 板式混响" paraPos="1"></REVERB>
+        <REVERB name="05: 弹簧混响" paraPos="1"></REVERB>
+        <REVERB name="06: 调制混响" paraPos="1"></REVERB>
+        <REVERB name="07: 洞穴混响" paraPos="1"></REVERB>
+        <REVERB name="08: 华丽星光混响" paraPos="8">
+           <para name="预延迟" type="0">0_500_1_0_</para>
+           <para name="音量" type="0">0_100_1_0_</para>
+           <para name="衰减时间" type="0">0_100_1_0_</para>
+           <para name="音色" type="0">0_100_1_0_</para>
+           <para name="飘离感" type="0">0_100_1_0_</para>
+        </REVERB>
+    </chain>
+</resources>
