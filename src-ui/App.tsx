@@ -5,7 +5,13 @@ import appIcon from "../src-tauri/icons/source.svg?url";
 import ampHeadArt from "./assets/guitar-amp-head-front.svg?url";
 import cabinetArt from "./assets/guitar-amp-cabinet-2x12.svg?url";
 import pedalArt from "./assets/guitar-pedal.svg?url";
+import tunerIcon from "./assets/tuner.svg?url";
+import metronomeIcon from "./assets/metronome.svg?url";
+import recordIcon from "./assets/record.svg?url";
 import Tuner from "./TunerModal";
+import Recorder from "./Recorder";
+import RigStage from "./RigStage";
+import SignalChain, { type SignalChainItem } from "./SignalChain";
 
 type Parameter = number | string;
 type Module = { TYPE: number; SWITCH: number; Data: Record<string, Parameter> };
@@ -25,6 +31,7 @@ type Bootstrap = {
   presets: string[];
   models: ModelInfo[][];
 };
+type Metronome = { context: AudioContext; timer: number; nextBeat: number; beat: number; bpm: number };
 
 function storedNames(key: string) {
   try {
@@ -48,6 +55,30 @@ function importName(path: string) {
 
 const BLOCKS = ["FX / COMP", "DS / OD", "AMP", "CAB", "NS GATE", "EQ", "MOD", "DELAY", "REVERB"];
 const DEFAULT_URL = "http://127.0.0.1:11434/v1";
+const gearArtwork = {
+  AMP: import.meta.glob("./assets/amps/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
+  CAB: import.meta.glob("./assets/cabs/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
+  PEDAL: import.meta.glob("./assets/pedals/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
+};
+
+function artworkFor(block: string, modelName?: string) {
+  const slug = modelName?.replace(/^\d+[:\s]*/, "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const type = block === "AMP" ? "AMP" : block === "CAB" ? "CAB" : "PEDAL";
+  const folder = type === "PEDAL" ? "pedals" : type === "CAB" ? "cabs" : "amps";
+  const fallback = type === "AMP" ? ampHeadArt : type === "CAB" ? cabinetArt : pedalArt;
+  return (slug && gearArtwork[type][`./assets/${folder}/${slug}.svg`]) || fallback;
+}
+
+function modelIsSelectable(model: ModelInfo | null | undefined, index: number, ampNames: string[], cabNames: string[]): model is ModelInfo {
+  if (!model || !model.parameters.length) return false;
+  if (model.available) return true;
+  const catalogName = model.name.replace(/^\d+[: ]*/, "").trim();
+  if (catalogName === "EMPTY") {
+    const importedName = model.customAmp ? ampNames[index - 55] : model.customIr ? cabNames[index - 26] : "";
+    return !!importedName?.trim() && importedName.trim().toUpperCase() !== "EMPTY";
+  }
+  return false;
+}
 
 export default function App() {
   const [bootstrap, setBootstrap] = useState<Bootstrap | null>(null);
@@ -65,6 +96,10 @@ export default function App() {
   const [importTargetIndex, setImportTargetIndex] = useState<number | null>(null);
   const [customImportTab, setCustomImportTab] = useState<"amp" | "cab">("amp");
   const [tunerOpen, setTunerOpen] = useState(false);
+  const [recorderOpen, setRecorderOpen] = useState(false);
+  const [metronomeBpm, setMetronomeBpm] = useState(100);
+  const [metronomeBpmInput, setMetronomeBpmInput] = useState("100");
+  const [metronomeOn, setMetronomeOn] = useState(false);
   const [liveLink, setLiveLink] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [lastBackupPath, setLastBackupPath] = useState("");
@@ -82,6 +117,7 @@ export default function App() {
   const [startupError, setStartupError] = useState("");
   const [status, setStatus] = useState("Starting Tone Studio…");
   const liveTimers = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
+  const metronomeRef = useRef<Metronome | null>(null);
 
   useEffect(() => {
     localStorage.setItem("provider-url", baseUrl);
@@ -102,6 +138,71 @@ export default function App() {
   useEffect(() => {
     void initializeApp();
   }, []);
+
+  useEffect(() => () => {
+    const metronome = metronomeRef.current;
+    if (metronome) {
+      window.clearInterval(metronome.timer);
+      void metronome.context.close();
+    }
+  }, []);
+
+  async function toggleMetronome() {
+    if (metronomeRef.current) {
+      const current = metronomeRef.current;
+      metronomeRef.current = null;
+      window.clearInterval(current.timer);
+      await current.context.close();
+      setMetronomeOn(false);
+      return;
+    }
+    const context = new AudioContext();
+    const metronome: Metronome = { context, timer: 0, nextBeat: 0, beat: 0, bpm: metronomeBpm };
+    metronomeRef.current = metronome;
+    try {
+      await context.resume();
+      if (metronomeRef.current !== metronome) return;
+      metronome.nextBeat = context.currentTime + 0.05;
+      metronome.timer = window.setInterval(() => {
+        const now = context.currentTime;
+        while (metronome.nextBeat < now + 0.1) {
+          const oscillator = context.createOscillator();
+          const gain = context.createGain();
+          oscillator.frequency.value = metronome.beat % 4 === 0 ? 1320 : 880;
+          gain.gain.setValueAtTime(0.0001, metronome.nextBeat);
+          gain.gain.exponentialRampToValueAtTime(0.22, metronome.nextBeat + 0.003);
+          gain.gain.exponentialRampToValueAtTime(0.0001, metronome.nextBeat + 0.045);
+          oscillator.connect(gain).connect(context.destination);
+          oscillator.start(metronome.nextBeat);
+          oscillator.stop(metronome.nextBeat + 0.05);
+          metronome.nextBeat += 60 / metronome.bpm;
+          metronome.beat++;
+        }
+      }, 25);
+      setMetronomeOn(true);
+    } catch (error) {
+      if (metronomeRef.current !== metronome) return;
+      metronomeRef.current = null;
+      await context.close().catch(() => undefined);
+      setStatus(`Could not start metronome · ${String(error)}`);
+    }
+  }
+
+  function changeMetronomeBpm(value: number) {
+    const next = Math.max(40, Math.min(240, Math.round(value) || 40));
+    setMetronomeBpm(next);
+    setMetronomeBpmInput(String(next));
+    if (metronomeRef.current) metronomeRef.current.bpm = next;
+  }
+
+  function editMetronomeBpm(value: string) {
+    setMetronomeBpmInput(value);
+    const next = Number(value);
+    if (value.trim() && next >= 40 && next <= 240) {
+      setMetronomeBpm(next);
+      if (metronomeRef.current) metronomeRef.current.bpm = next;
+    }
+  }
 
   const filteredDevicePresets = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -606,7 +707,7 @@ export default function App() {
   function changeModel(slot: number, type: number) {
     const module = preset?.effectModule[String(slot)];
     const modelInfo = bootstrap?.models[slot]?.[type];
-    if (!module || !modelInfo?.available || !modelInfo.parameters.length) return;
+    if (!module || !modelIsSelectable(modelInfo, type, customAmpNames, customCabNames)) return;
     const data = Object.fromEntries(modelInfo.parameters.map((parameter) => [parameter.name, module.Data[parameter.name] ?? parameter.default]));
     updateModule(slot, { TYPE: type, Data: data });
     setIncomplete(false);
@@ -629,6 +730,17 @@ export default function App() {
     ?? customTargets[0];
   const currentName = preset?.fileInfo?.preset_name || "Choose a preset to get started";
   const currentTarget = targetSlot === null ? null : devicePresets.find((item) => item.slot === targetSlot) ?? null;
+  const chainItems: SignalChainItem[] = BLOCKS.map((name, slot) => {
+    const current = preset?.effectModule[String(slot)];
+    const info = current ? bootstrap?.models[slot]?.[current.TYPE] : undefined;
+    return {
+      slot,
+      name,
+      modelName: modelDisplayName(info, slot, current?.TYPE ?? 0, customAmpNames, customCabNames, false),
+      enabled: !!current?.SWITCH,
+      rack: slot === 2 || slot === 3,
+    };
+  });
 
   if (startupState !== "ready") {
     return <div className="startup-cover" aria-busy={startupState === "loading"}>
@@ -646,8 +758,8 @@ export default function App() {
     <div className="studio">
       <header className="topbar">
         <div className="brand"><img className="brand-mark" src={appIcon} alt=""/><div><b>GE150 / TONE LAB</b><small>AMP & EFFECTS STUDIO</small></div></div>
-        <div className="top-preset"><small>PRESET</small>{preset ? <input value={currentName} onChange={(e) => { setPreset((p) => p ? { ...p, fileInfo: { ...p.fileInfo, preset_name: e.target.value.slice(0, 16) } } : p); setDirty(true); }} /> : <span>No preset loaded</span>}</div>
-        <div className="top-actions"><span className={`connection ${devicePresets.length ? "online" : ""}`}><i />{devicePresets.length ? `GE150 · ${devicePresets.length} PRESETS${customAmpNames.length ? ` · ${customAmpNames.filter(Boolean).length} AMP / ${customCabNames.filter(Boolean).length} IR` : ""}` : "DEVICE OFFLINE"}</span><button className="button button-secondary tuner-open" onClick={() => setTunerOpen(true)}>TUNER</button><label className={`live-link ${liveLink ? "enabled" : ""}`}><input type="checkbox" checked={liveLink} disabled={busy || !devicePresets.length} onChange={(e) => void setLivePedal(e.target.checked)} /><span>LIVE PEDAL</span></label>{selectedDevice !== null && <button className="button button-secondary" disabled={busy} onClick={() => void activateOnPedal()}>ACTIVATE</button>}{lastBackupPath && <button className="button button-secondary" disabled={busy} onClick={() => void restoreLastBackup()}>RESTORE BACKUP</button>}<button className="button button-secondary" disabled={!preset || incomplete} onClick={() => void exportPreset()}>EXPORT .MO</button><button className="button button-primary top-save" disabled={!preset || targetSlot === null || incomplete || busy} onClick={() => void (selectedDevice === null ? previewPresetOnTarget() : savePresetToDevice())}>{selectedDevice === null ? "LOAD ON TARGET" : "SAVE TO PEDAL"}</button></div>
+        <div className="top-preset"><small>PRESET</small><span>{preset ? currentName : "No preset loaded"}</span></div>
+        <div className="top-actions"><span className={`connection ${devicePresets.length ? "online" : ""}`}><i />{devicePresets.length ? `GE150 · ${devicePresets.length} PRESETS${customAmpNames.length ? ` · ${customAmpNames.filter(Boolean).length} AMP / ${customCabNames.filter(Boolean).length} IR` : ""}` : "DEVICE OFFLINE"}</span><div className="top-audio-actions"><button className="button button-secondary top-icon-action" aria-label="Open tuner" title="Tuner" onClick={() => setTunerOpen(true)}><img src={tunerIcon} alt="" /></button><button className={`button button-secondary top-icon-action metronome-launch ${metronomeOn ? "active" : ""}`} aria-label={`${metronomeOn ? "Stop" : "Start"} metronome at ${metronomeBpm} BPM`} title={`${metronomeOn ? "Stop" : "Start"} metronome · ${metronomeBpm} BPM`} aria-pressed={metronomeOn} onClick={() => void toggleMetronome()}><img src={metronomeIcon} alt="" /></button><label className="main-bpm"><span>BPM</span><input type="number" min="40" max="240" step="1" aria-label="Metronome tempo in beats per minute" value={metronomeBpmInput} onChange={(event) => editMetronomeBpm(event.target.value)} onBlur={() => setMetronomeBpmInput(String(metronomeBpm))} /></label><button className="button button-primary top-icon-action record-launch" aria-label="Open recorder" title="Record" onClick={() => setRecorderOpen(true)}><img src={recordIcon} alt="" /></button></div><label className={`live-link ${liveLink ? "enabled" : ""}`}><input type="checkbox" checked={liveLink} disabled={busy || !devicePresets.length} onChange={(e) => void setLivePedal(e.target.checked)} /><span>LIVE PEDAL</span></label>{selectedDevice !== null && <button className="button button-secondary" disabled={busy} onClick={() => void activateOnPedal()}>ACTIVATE</button>}{lastBackupPath && <button className="button button-secondary" disabled={busy} onClick={() => void restoreLastBackup()}>RESTORE BACKUP</button>}<button className="button button-secondary" disabled={!preset || incomplete} onClick={() => void exportPreset()}>EXPORT .MO</button><button className="button button-primary top-save" disabled={!preset || targetSlot === null || incomplete || busy} onClick={() => void (selectedDevice === null ? previewPresetOnTarget() : savePresetToDevice())}>{selectedDevice === null ? "LOAD ON TARGET" : "SAVE TO PEDAL"}</button></div>
       </header>
 
       <div className="workspace">
@@ -674,38 +786,24 @@ export default function App() {
         </aside>
 
         <main className="editor">
-          <div className="editor-heading"><div><small>PRESET WORKSPACE</small><h1>{currentName}</h1><p>{activeComputerPath ? "Computer preset · editable copy" : selectedDevice !== null ? `Device preset ${presetSlotLabel(devicePresets[selectedDevice]?.slot ?? 1)}` : preset ? "AI-generated preset · editable copy" : "Select a device or computer preset to begin"}</p></div><div className="editor-tags"><span>GE150 PRO</span>{selectedDevice !== null ? <span>SAVE TARGET {presetSlotLabel(devicePresets[selectedDevice]?.slot ?? 1)}</span> : preset && <label className="target-picker"><small>LOAD TARGET</small><select aria-label="Pedal preset target" value={targetSlot ?? ""} onChange={(event) => { const slot = event.target.value ? Number(event.target.value) : null; setTargetSlot(slot); if (slot === null) setAiLoadOnTarget(false); }}><option value="">Choose pedal preset…</option>{devicePresets.map((item) => <option key={item.slot} value={item.slot}>{presetSlotLabel(item.slot)} · {item.name || "Untitled preset"}</option>)}</select></label>}</div></div>
+          <div className="editor-heading"><div><small>PRESET WORKSPACE</small><h1>{preset ? <input aria-label="Preset name" maxLength={16} value={currentName} onChange={(event) => { setPreset((current) => current ? { ...current, fileInfo: { ...current.fileInfo, preset_name: event.target.value } } : current); setDirty(true); }} /> : currentName}</h1><p>{activeComputerPath ? "Computer preset · editable copy" : selectedDevice !== null ? `Device preset ${presetSlotLabel(devicePresets[selectedDevice]?.slot ?? 1)}` : preset ? "AI-generated preset · editable copy" : "Select a device or computer preset to begin"}</p></div><div className="editor-tags"><span>GE150 PRO</span>{selectedDevice !== null ? <span>SAVE TARGET {presetSlotLabel(devicePresets[selectedDevice]?.slot ?? 1)}</span> : preset && <label className="target-picker"><small>LOAD TARGET</small><select aria-label="Pedal preset target" value={targetSlot ?? ""} onChange={(event) => { const slot = event.target.value ? Number(event.target.value) : null; setTargetSlot(slot); if (slot === null) setAiLoadOnTarget(false); }}><option value="">Choose pedal preset…</option>{devicePresets.map((item) => <option key={item.slot} value={item.slot}>{presetSlotLabel(item.slot)} · {item.name || "Untitled preset"}</option>)}</select></label>}</div></div>
           {incomplete && <div className="warning-banner">Some model parameters are not in the bundled catalog. Raw device values are shown; editing/export is disabled to avoid creating a broken preset.</div>}
-          <section className="chain-section"><div className="section-title"><div><small>01 / YOUR RIG</small><h2>Signal chain</h2></div><span>SELECT A MODULE TO EDIT</span></div><div className="chain-scroll"><div className="chain">
-            {BLOCKS.map((name, slot) => {
-              const current = preset?.effectModule[String(slot)];
-              const info = current ? bootstrap?.models[slot]?.[current.TYPE] : undefined;
-              const modelName = modelDisplayName(info, slot, current?.TYPE ?? 0, customAmpNames, customCabNames, false);
-              const rackModule = slot === 2 || slot === 3;
-              return <button key={slot} aria-pressed={selectedBlock === slot} onClick={() => setSelectedBlock(slot)} className={`chain-module ${rackModule ? `rack-module ${slot === 3 ? "cab-rack" : "amp-rack"}` : "stomp-pedal"} ${selectedBlock === slot ? "active" : ""}`}>
-                {rackModule ? <>
-                  <span className="rack-screws" aria-hidden="true"><i /><i /></span>
-                  <span className="rack-label">{slot === 2 ? "AMPLIFIER" : "CABINET"}</span>
-                  <b>{modelName || (current ? `MODEL ${current.TYPE}` : "—")}</b>
-                  <span className="rack-art" aria-hidden="true"><img src={slot === 3 ? cabinetArt : ampHeadArt} alt="" /></span>
-                  <span className="pedal-state">{current?.SWITCH ? "ACTIVE" : "BYPASS"}</span>
-                </> : <>
-                  <span className="pedal-topline"><i className={`module-led ${current?.SWITCH ? "on" : ""}`} /><small>STOMPBOX</small></span>
-                  <span className="pedal-kind">{name}</span>
-                  <b>{modelName || (current ? `MODEL ${current.TYPE}` : "—")}</b>
-                  <img className="pedal-art" src={pedalArt} alt="" />
-                  <span className="pedal-state">{current?.SWITCH ? "ACTIVE" : "BYPASS"}</span>
-                </>}
-              </button>;
-            })}
-          </div></div></section>
+          <RigStage
+            block={BLOCKS[selectedBlock]}
+            blockNumber={selectedBlock + 1}
+            modelName={modelDisplayName(modelInfo, selectedBlock, module?.TYPE ?? 0, customAmpNames, customCabNames)}
+            modelIndex={module?.TYPE}
+            modelOptions={models.map((item, index) => ({
+              name: modelDisplayName(item, selectedBlock, index, customAmpNames, customCabNames),
+              disabled: !modelIsSelectable(item, index, customAmpNames, customCabNames),
+            }))}
+            image={artworkFor(BLOCKS[selectedBlock], modelInfo?.name)}
+            hasPreset={!!preset}
+            onModelChange={(index) => changeModel(selectedBlock, index)}
+          />
+          <SignalChain items={chainItems} selected={selectedBlock} onSelect={setSelectedBlock} />
           {preset ? <section className={`controls-section ${selectedBlock === 2 ? "amp-console" : "pedal-console"}`}>
-            {selectedBlock === 2 && <div className="amp-header">
-              <div className="amp-display"><small>AMPLIFIER MODEL</small><strong>{modelDisplayName(modelInfo, selectedBlock, module?.TYPE ?? 0, customAmpNames, customCabNames, false) || "SELECT A MODEL"}</strong></div>
-              <div className="amp-power"><i className={module?.SWITCH ? "powered" : ""} /><span>{module?.SWITCH ? "POWER ON" : "STANDBY"}</span></div>
-            </div>}
             <div className="section-title control-heading"><div><small>{selectedBlock === 2 ? "02 / AMP CONTROL PANEL" : `02 / EFFECTS · ${String(selectedBlock + 1).padStart(2, "0")}`}</small><h2>{BLOCKS[selectedBlock]} <span className="muted">controls</span></h2></div>{module && <label className="module-toggle"><span>{module.SWITCH ? "ACTIVE" : "BYPASSED"}</span><input type="checkbox" checked={!!module.SWITCH} onChange={(e) => updateModule(selectedBlock, { SWITCH: e.target.checked ? 1 : 0 })}/><i /></label>}</div>
-            {module && <div className="model-select"><label>{selectedBlock === 2 ? "AMP MODEL" : selectedBlock === 3 ? "CABINET" : "EFFECT MODEL"}</label><select value={module.TYPE} onChange={(e) => changeModel(selectedBlock, Number(e.target.value))}>{models.map((m, index) => <option key={index} value={index} disabled={(!m.available || !m.parameters.length) && index !== module.TYPE}>{modelDisplayName(m, selectedBlock, index, customAmpNames, customCabNames)}</option>)}</select></div>}
             {modelInfo?.customIr && <div className="ir-note">AI can replace this custom IR with a catalog CAB. Preset files reference an IR slot; they do not contain the IR audio.</div>}
             <div className={`knob-grid ${selectedBlock === 2 ? "amp-knobs" : "pedal-knobs"}`}>{modelInfo?.parameters.map((parameter) => {const name=parameter.name; const value=module?.Data[name]; const eqGain=isEqGain(name); return parameter.choices.length ? <div className="choice-control" key={name}><label>{name}</label><select value={Number(value ?? parameter.default)} onChange={(e)=>updateParameter(selectedBlock,name,Number(e.target.value))}>{parameter.choices.map((choice,index)=><option value={index} key={choice}>{choice}</option>)}</select></div> : typeof value === "number" ? <Knob key={name} label={eqGain ? `${name} · dB` : name} value={value} displayValue={eqGain ? value - 16 : undefined} min={parameter.minimum} max={parameter.maximum} step={parameter.step || 1} onChange={(next) => updateParameter(selectedBlock, name, next)} /> : <div className="unmapped-control" key={name}><small>{name}</small><b>{String(value ?? "—")}</b></div>;})}</div>
             {incomplete && devicePresets[selectedDevice ?? -1]?.modules[selectedBlock] && <div className="raw-values"><small>RAW DEVICE VALUES</small><code>{devicePresets[selectedDevice!].modules[selectedBlock]?.parameters.join(" · ")}</code></div>}
@@ -741,6 +839,7 @@ export default function App() {
         </aside>
       </div>
       {tunerOpen && <Tuner onClose={() => setTunerOpen(false)} />}
+      {recorderOpen && <Recorder onClose={() => setRecorderOpen(false)} bpm={metronomeBpm} bpmInput={metronomeBpmInput} metronomeOn={metronomeOn} onBpmChange={changeMetronomeBpm} onBpmInputChange={editMetronomeBpm} onToggleMetronome={() => void toggleMetronome()} />}
     </div>
   );
 }

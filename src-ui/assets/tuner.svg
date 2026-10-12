@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g id="tuning-fork" fill="none" stroke="#eeeae2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path id="fork-and-stem" d="M8 3.5V8q0 5 4 5t4-5V3.5M12 13v7.5M9.5 21h5" /><path id="left-resonance" d="M4.5 6.5a8 8 0 0 0 0 4.5" /><path id="right-resonance" d="M19.5 6.5a8 8 0 0 1 0 4.5" /></g><g id="fork-tips" fill="#eeeae2"><circle id="left-tip" cx="8" cy="3.5" r=".9" /><circle id="right-tip" cx="16" cy="3.5" r=".9" /></g></svg>

@@ -11,6 +11,7 @@ use std::{
     time::{SystemTime, UNIX_EPOCH},
 };
 use tauri::{AppHandle, Manager};
+use tauri_plugin_fs::FsExt;
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -453,9 +454,26 @@ async fn restore_device_backup(path: String) -> Result<(), String> {
     .map_err(|error| error.to_string())?
 }
 
+#[tauri::command]
+fn allow_recording_output(app: AppHandle, path: String) -> Result<(), String> {
+    let output = PathBuf::from(path);
+    if !output.is_absolute()
+        || !output
+            .extension()
+            .and_then(|extension| extension.to_str())
+            .is_some_and(|extension| extension.eq_ignore_ascii_case("wav"))
+    {
+        return Err("Recording output must be an absolute WAV file path".into());
+    }
+    app.fs_scope()
+        .allow_file(output)
+        .map_err(|error| error.to_string())
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_fs::init())
         .invoke_handler(tauri::generate_handler![
             get_bootstrap,
             load_api_key,
@@ -473,7 +491,8 @@ fn main() {
             generate_tone,
             export_preset,
             save_preset_to_device,
-            restore_device_backup
+            restore_device_backup,
+            allow_recording_output
         ])
         .run(tauri::generate_context!())
         .expect("error while running GE150 Tone Studio");

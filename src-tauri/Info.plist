@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>GE150 Tone Studio listens to the connected GE150 Pro USB audio input only while the tuner is active, to display pitch and tuning.</string>
+	<string>GE150 Tone Studio accesses the connected GE150 Pro USB audio input for tuning and recording when you start those features.</string>
 </dict>
 </plist>
