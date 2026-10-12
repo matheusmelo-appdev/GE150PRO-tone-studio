@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
+  <defs>
+    <linearGradient id="case" x2="0" y2="1"><stop stop-color="#59666a"/><stop offset="1" stop-color="#252b2e"/></linearGradient>
+    <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#f3f0e6"/><stop offset=".45" stop-color="#aeb2b0"/><stop offset="1" stop-color="#5e6465"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-8%" width="130%" height="120%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity=".4"/></filter>
+  </defs>
+  <g id="mod-pedal-front" filter="url(#shadow)">
+    <rect x="345" y="16" width="210" height="428" rx="18" fill="url(#case)" stroke="#111517" stroke-width="6"/>
+    <rect x="357" y="29" width="186" height="386" rx="8" fill="none" stroke="#aab2ad" stroke-opacity=".7" stroke-width="2"/>
+    <text x="450" y="58" text-anchor="middle" dominant-baseline="central" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#eeeae2">MOD</text>
+    <g fill="#191d1f" stroke="#aeb4b2" stroke-width="2">
+      <circle cx="395" cy="130" r="21"/><circle cx="450" cy="130" r="21"/><circle cx="505" cy="130" r="21"/>
+    </g>
+    <g stroke="#eeeae2" stroke-width="2.5" stroke-linecap="round"><path d="M395 114v8M450 114v8M505 114v8"/></g>
+    <g fill="#dedfd8" font-family="Arial,Helvetica,sans-serif" font-size="8" text-anchor="middle"><text x="395" y="165">RATE</text><text x="450" y="165">DEPTH</text><text x="505" y="165">MIX</text></g>
+    <path d="M377 194h146" stroke="#c6c9c3" stroke-opacity=".55" stroke-width="2"/>
+    <circle cx="450" cy="235" r="12" fill="#121517" stroke="#89918f" stroke-width="2"/>
+    <circle cx="450" cy="235" r="5" fill="#e6a85c"/>
+    <circle cx="450" cy="350" r="35" fill="#171b1d" stroke="#d1d2ca" stroke-width="4"/>
+    <circle cx="450" cy="350" r="25" fill="url(#steel)" stroke="#53595a" stroke-width="3"/>
+    <circle cx="450" cy="350" r="12" fill="#bfc3c0" stroke="#707677" stroke-width="2"/>
+    <g fill="#bcc1be" stroke="#3d4446" stroke-width="2"><circle cx="355" cy="250" r="7"/><circle cx="545" cy="250" r="7"/></g>
+  </g>
+</svg>

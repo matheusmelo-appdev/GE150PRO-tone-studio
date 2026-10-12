@@ -56,9 +56,9 @@ function importName(path: string) {
 const BLOCKS = ["FX / COMP", "DS / OD", "AMP", "CAB", "NS GATE", "EQ", "MOD", "DELAY", "REVERB"];
 const DEFAULT_URL = "http://127.0.0.1:11434/v1";
 const gearArtwork = {
-  AMP: import.meta.glob("./assets/amps/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
-  CAB: import.meta.glob("./assets/cabs/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
-  PEDAL: import.meta.glob("./assets/pedals/*.svg", { eager: true, query: "?url", import: "default" }) as Record<string, string>,
+  AMP: import.meta.glob("./assets/amps/*.svg", { eager: true, query: "?url&no-inline", import: "default" }) as Record<string, string>,
+  CAB: import.meta.glob("./assets/cabs/*.svg", { eager: true, query: "?url&no-inline", import: "default" }) as Record<string, string>,
+  PEDAL: import.meta.glob("./assets/pedals/*.svg", { eager: true, query: "?url&no-inline", import: "default" }) as Record<string, string>,
 };
 
 function artworkFor(block: string, modelName?: string) {
